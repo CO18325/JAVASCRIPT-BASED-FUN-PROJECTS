@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>THE GYPSY PLAYER</title>
+<script>
+var pic=Array("1.jpg","2.jpg","3.jpg","4.jpg","5.jpg");
+var len=pic.length;
+var i;
+function music(){
+document.getElementById("player").src=document.getElementById("songs").value;
+document.getElementById("pc").src=pic[document.getElementById("songs").selectedIndex - 1];
+
+}
+</script>
+<style>
+
+#songs{
+	background-color:#333;
+	font-size:42px;
+	font-style:inherit;
+	color:#F03;
+	border:6px thick #666;
+	border-style:solid;
+	border-width:8px
+	
+}
+select:hover, select:focus select:active
+{
+	background-color:#999;
+	font-size:36px;
+	border:6px thick #CCC;
+	border-style:solid;
+	box-shadow: 4px 4px 8px 0px #00CCFF;
+	border-radius:7px 7px 7px 7px ;
+
+
+}
+audio:hover, audio:focus, audio:active
+{
+-webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+box-shadow: 15px 15px 20px #00FFFF;
+-webkit-transform: scale(1.05);
+transform: scale(1.05);
+}
+
+
+audio
+{
+	background-color:#F00;
+-webkit-transition:all 0.5s linear;
+transition:all 0.5s linear;
+-webkit-box-shadow:  2px 2px 4px 0px #006773;
+box-shadow: 2px 2px 4px 0px #006773;
+-webkit-border-radius:7px 7px 7px 7px ;
+border-radius:7px 7px 7px 7px ;
+}
+
+
+</style>
+</head>
+
+<body background="background.jpg">
+
+<p style="color:#FFF; font-size:60px; font-family:'Comic Sans MS', cursive; height:250px; background:url(back_logo.jpg); background-position:center; " >
+<img src="logo.png" style="float:left;" id="imge" height="260"  /><br /><b><u><i>THE GYPSY PLAYER</i></u></b>
+</p>
+<img src="sel_image.jpg"  align="right" width="500" height="400" id="pc"/><br /><br /><br />
+<center>
+<select onchange="music()" id="songs">
+<option disabled="disabled" selected="selected">select a song</option>
+<option  value="Ammy Virk (DjPunjab.CoM) - Zindabaad Yaarian (DjPunjab.CoM)-2.mp3" onclick="pic0()"  >Zindabaad Yaarian</option>
+<option value="Choorhey Wali Bahh - Mankirt Aulakh (DjPunjab.Com).mp3" onclick="pic1()">Choorhey Wali Bahh</option>
+<option value="Ja Ve Mundya - Ranjit Bawa (DjPunjab.Com).mp3" onclick="pic2()">Ja Ve Mundya</option>
+<option value="Vadde Velly-(Mr-Jatt.com).mp3" onclick="pic3()">Vadde Velly</option> 
+<option value="Yaar Khade Ne-(Mr-Jatt.com).mp3" onclick="pic4()">Yaar Khade Ne</option>
+</select>
+<br />
+<br />
+<audio controls preload="metadata" id="player" type="audio/ogg" autoplay="autoplay"></audio>
+</center>
+<br /><br /><br /><br /><br /><br />
+<p style=" color:#FFF">
+how to align using pixels
+IMAGE PLACEMENT HIGH LEVEL THREAT.  why top is 2 lines down
+630 IMP AKJDSKLJGLKFDJ
+
+</p><br /><br><br>
+<hr size="10" color="black"><pre style="color:#FFF">
+<i>&copy; ALL RIGHTS RESERVED</i>	&nbsp;					                    <i>DESIGNED BY:-- <font face="Comic Sans MS, cursive"><u>IP SINGH </u></font></i></pre>
+
+</body>
+</html>
