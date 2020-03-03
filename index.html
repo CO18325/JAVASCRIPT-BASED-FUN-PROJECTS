@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CALCULATOR</title>
+<script>
+	//*************************DECLARRATION OF GLOBAL VARIABLES*********************************//
+	var operator='#';//Random declaration to avoid any code failure due to unexpected operator.
+	var zero='';//To clear the text box or operator show button
+	var first_num;
+	var second_num;//operands
+	var res;//to store final as well as temporary results
+	
+	//********************************FEATURE FUNCTIONS****************************************//
+	
+	
+	//operator_check() function is for starting a new calculation after a result is obtained.
+	function operator_check(){
+		if(operator=='='){
+			operator='#';//to give operator a random value so that it doesn't match any condition of possible calculation.
+			document.getElementById("txt_bx").value=zero;
+			document.getElementById("txt_opt").value=' ';	
+		}
+	}
+	//This function is to perform multiple operations without using '=' operator.
+	function opt_concat(){
+		var ch;
+		switch(operator){
+			case'+':
+				res= parseFloat(document.getElementById("txt_bx").value) + first_num;
+				ch=10;
+				break;
+			case'-':
+				res= first_num - parseFloat(document.getElementById("txt_bx").value);
+				ch=10;
+				break;			
+			case'*':
+				res= parseFloat(document.getElementById("txt_bx").value) * first_num;
+				ch=10;
+				break;
+			case'/':
+				res= first_num / parseFloat(document.getElementById("txt_bx").value);
+				ch=10;
+				break;	
+		}
+		if(ch==10)
+			first_num=res; 
+		else
+			first_num=parseFloat(document.getElementById("txt_bx").value);
+			
+	}
+	
+	
+	//***********************OPERATOR FUNCTION******************************//
+	
+	
+	function sum(){
+		opt_concat();
+		operator=document.getElementById("sumid").value;
+		document.getElementById("txt_bx").value=zero;
+		document.getElementById("txt_opt").value=operator;
+		
+	}
+	
+	function subraction(){
+		opt_concat();
+		//if(operator=='#')
+		//	first_num=0;	
+		document.getElementById("txt_bx").value=zero;
+		operator=document.getElementById("subid").value;
+		document.getElementById("txt_opt").value=operator;
+	}
+	function multiply(){
+		opt_concat();
+		operator=document.getElementById("multid").value;
+		document.getElementById("txt_bx").value=zero;
+		document.getElementById("txt_opt").value=operator;
+		
+	}
+	function divide(){
+		opt_concat();
+		operator=document.getElementById("divid").value;
+		document.getElementById("txt_bx").value=zero;
+		document.getElementById("txt_opt").value=operator;
+		
+	}
+	function equal(){
+	
+		second_num=parseFloat(document.getElementById("txt_bx").value);
+		var res;
+		switch(operator){
+			case '+':
+				res=first_num+second_num;
+				break;
+			case '-':
+				res=first_num-second_num;
+				break;
+			case '*':
+				res=first_num*second_num;
+				break;
+			case '/':
+				res=first_num/second_num;
+				break;	
+		}
+		document.getElementById("txt_bx").value=res;
+		operator='=';
+		document.getElementById("txt_opt").value=operator;
+	}
+	
+	//********************************OPERAND BUTTON FUNCTIONS***************************//
+	
+	/*
+		The logic applied is :- String concatination of any previous operand and the operand of the respective button.
+								After this displaying the current concated number in the text-box 	
+	*/
+	function concatdot(){
+		operator_check();
+		var y=document.getElementById("num_dot");
+		document.getElementById("txt_bx").value=document.getElementById("txt_bx").value + y.value;
+	}
+	function concat0(){
+		operator_check();
+		var y=document.getElementById("num_0");
+		document.getElementById("txt_bx").value=document.getElementById("txt_bx").value + y.value;
+	}
+	function concat00(){
+		operator_check();
+		var y=document.getElementById("num_00");
+		document.getElementById("txt_bx").value=document.getElementById("txt_bx").value + y.value;
+	}
+	function concat1(){
+		operator_check();
+		var y=document.getElementById("num_1");
+		document.getElementById("txt_bx").value=document.getElementById("txt_bx").value + y.value;
+	}
+	function concat2(){
+		operator_check();
+		var y=document.getElementById("num_2");
+		document.getElementById("txt_bx").value=document.getElementById("txt_bx").value + y.value;
+	}
+	function concat3(){
+		operator_check();
+		var y=document.getElementById("num_3");
+		document.getElementById("txt_bx").value=document.getElementById("txt_bx").value + y.value;
+	}	
+	function concat4(){
+		operator_check();
+		var y=document.getElementById("num_4");
+		document.getElementById("txt_bx").value=document.getElementById("txt_bx").value + y.value;
+	}
+	function concat5(){
+		operator_check();
+		var y=document.getElementById("num_5");
+		document.getElementById("txt_bx").value=document.getElementById("txt_bx").value + y.value;
+	}
+	function concat6(){
+		operator_check();
+		var y=document.getElementById("num_6");
+		document.getElementById("txt_bx").value=document.getElementById("txt_bx").value + y.value;
+	}
+	function concat7(){
+		operator_check();
+		var y=document.getElementById("num_7");
+		document.getElementById("txt_bx").value=document.getElementById("txt_bx").value + y.value;
+	}
+	function concat8(){
+		operator_check();
+		var y=document.getElementById("num_8");
+		document.getElementById("txt_bx").value=document.getElementById("txt_bx").value + y.value;
+	}
+	function concat9(){
+		operator_check();
+		var y=document.getElementById("num_9");
+		document.getElementById("txt_bx").value=document.getElementById("txt_bx").value + y.value;
+	}
+	
+	//************Specially made to clear txt_bx and txt_opt when C is clicked!!!!**************************// 
+	function c_clean(){
+		document.getElementById("txt_bx").value=0;
+		document.getElementById("txt_opt").value=' ';
+	}
+					
+</script>
+<style>
+	#table_style{
+		padding:15px ;
+		background-color:#CCC;
+		border:7px solid #333;
+		border-width:10px;
+		
+	}
+	#txt_bx{
+		border:2px #000 thick;
+		border-width:6px; 
+		background-color:#FFF;
+		font-size:22px;
+		padding:16px ;
+		width:75%;
+		display:inline-block;
+		text-align:right;
+		text-decoration:!important
+	 
+		}
+	#txt_opt{
+		border:2px #000 thick;
+		border-width:6px; 
+		background-color:#060;
+		display:inline-block;
+		color:#FFF;
+		padding:9px 25px ;
+		font-size:34px;
+		color:#FFF;
+						
+		
+	}	
+	.buttons{
+  		
+ 		background-color:#333;
+		border:2px #666666 thick;
+  		border-width:8px;
+  		color:#FFF;
+  		padding: 15px 40px;
+  		text-align: center;
+  		text-decoration: !important;
+  		display: inline-block;
+  		font-size: 28px;
+}
+</style>
+</head>
+
+<body>
+<br><br><br>
+<center>
+<form style="width:600px;" >
+<table id="table_style" >
+<tr><td colspan="3" align="center">
+	<input type="button" value=" " id="txt_opt" />
+    <input type="button" value="0" id="txt_bx" style="font-size:24px;" /><br />
+	</td>
+</tr>
+<tr>
+	<td>
+    	<input type="button" value="1" id="num_1" onclick="concat1()" class="buttons" />  
+    </td>
+    <td>
+    	<input type="button" value="2" id="num_2" onclick="concat2()" class="buttons"  />  
+    </td>
+    <td>
+    	<input type="button"  value="3" id="num_3" onclick="concat3()" class="buttons"  />  
+    </td>
+</tr>
+<tr>
+	<td>
+    	<input type="button" value="4" id="num_4" onclick="concat4()" class="buttons" />  
+    </td>
+    <td>
+    	<input type="button" value="5" id="num_5" onclick="concat5()" class="buttons" />  
+    </td>
+    <td>
+    	<input type="button" value="6" id="num_6" onclick="concat6()" class="buttons" />  
+    </td>
+</tr>
+<tr>    
+    <td>
+    	<input type="button" value="7" id="num_7" onclick="concat7()" class="buttons" />   
+	</td>
+    <td>
+       <input type="button" value="8" id="num_8" onclick="concat8()" class="buttons" />  
+    </td>
+    <td>
+    	<input type="button" value="9" id="num_9" onclick="concat9()" class="buttons" />
+    </td>
+</tr>
+<tr>    
+    <td>
+    	<input type="button" value="0" id="num_0" onclick="concat0()" class="buttons" /> 
+    </td>
+    <td>
+    	<input type="button" value="00" style="padding:15px 32px;"  id="num_00" onclick="concat00()" class="buttons" /> 
+    </td>
+    <td>
+    	<input type="button" value="." id="num_dot" style="padding:15px 44px;" onclick="concatdot()" class="buttons" /> 
+    </td>
+    
+</tr>
+<tr>
+	<td>  
+        <input type="button" value="+" id="sumid" onclick="sum()" class="buttons" />
+ 	</td>
+    <td>
+	    <input type="button" value="-" style="padding:15px 43px;" id="subid" onclick="subraction()" class="buttons" />
+    </td>
+    <td>
+    	<input type="button" value="*" id="multid" style="padding:15px 42px;" onclick="multiply()" class="buttons" />
+    </td>
+</tr>
+<tr>    
+    <td>
+    	<input type="reset" value="C" style="padding:15px 38px; background-color:#F00;" onclick="c_clean()" class="buttons" /> 
+    </td>    
+    <td>
+    	<input type="button" value="/" id="divid" style="padding:15px 44px;" onclick="divide()" class="buttons" />
+    </td>
+    <td>
+    	<input type="button" value="=" id="eq" style="padding:15px 39px;" onclick="equal()" class="buttons" />
+    </td>
+</tr>
+</table>    
+</form> 
+</center>
+NOT ABLE TO REMOVE INITIAL ZERO!!!!!!!!!!!!(VVIP)
+
+<hr size="10" color="black"><pre>
+<i>&copy; ALL RIGHTS RESERVED</i>	&nbsp;					                    <i>DESIGNED BY:-- <font color="#FF0000" face="Comic Sans MS, cursive"><u>IP SINGH </u></font></i></pre>
+
+</body>
+</html>
